@@ -9,7 +9,8 @@ st.title('Daily Temperature Tracker 3-Weihern ')
 
 @st.cache_data
 def load_data():
-    pd.read_csv('https://raw.githubusercontent.com/SMEszeni/runnerPublic/main/temperature_data.csv')
+    url = 'https://raw.githubusercontent.com/SMEszeni/runnerPublic/main/temperature_data.csv'
+    data = pd.read_csv(url, dayfirst=True)
     data['Date'] = pd.to_datetime(data['Date'], format='%d.%m.%Y')
     return data
 
